@@ -1,0 +1,73 @@
+
+/* tokens */
+:root {
+  --background: #e7eef2;   /* light blue-gray */
+  --footer-bg: #d9e1e6;    /* slightly darker */
+}
+
+.quarto-dark {
+  --background: #e7eef2;
+  --footer-bg: #d9e1e6;
+}
+
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+
+
+body { background: var(--background); }
+.footer, .quarto-footer { background: var(--footer-bg); }
+
+
+  .sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 100 !important;
+    bottom: 0 !important;
+    overflow-y: auto !important;
+    width: 200px;
+    border-right: 1px solid var(--bs-border-color);
+    background-color: #d9e1e6
+  }
+
+
+
+/*obligatorio para el footer */
+
+#sticky-controls {
+position: fixed;
+left: 0;
+right: 0;
+bottom: 0;
+z-index: 2000;
+background-color: #d9e1e6;
+border-top: 1px solid var(--bs-border-color);
+box-shadow: 0 -2px 8px rgba(0,0,0,.06);
+padding: 8px 16px;
+overflow: visible !important; /* allow dropdown to escape */
+  }
+
+/* --- Ensure dropdown appears above footer --- */
+  /* Always open the Selectize dropdown upward */
+  .selectize-control { position: relative; }
+.selectize-control .selectize-dropdown {
+  position: absolute !important;
+  top: auto !important;
+  bottom: 100% !important;   /* open above the control */
+    margin-bottom: 6px !important;
+  z-index: 5000 !important;
+  max-height: 60vh !important;
+  overflow-y: auto !important;
+}
+
+/* Make sure your fixed footer doesn't clip it */
+#sticky-controls { overflow: visible !important; }
+
+/* (Optional) flip the arrow to point up when open */
+.selectize-control.single .selectize-input:after {
+  border-color: transparent transparent currentColor transparent !important;
+}
+
+
+#sticky-controls .row > [class*="col-"] { padding-top: .25rem; padding-bottom: .25rem; }
+
